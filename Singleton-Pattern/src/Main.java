@@ -24,6 +24,7 @@ DataConnector.getInstance() 에 접근 자체가 불가능하다.
 
 또한, instance 를 static 으로 구현하지 않는다면,
 DataConnector 클래스의 getInstance() 내부의 instance 에 접근 자체가 불가능하다.
+(static 메소드에는 static 변수만 사용 가능하기 때문 !)
 
 >> static 으로 선언하면, 미리 메모리 상에 올라간다. 마치 전역변수처럼 같은 주소값을 참조하게 된다.
 
