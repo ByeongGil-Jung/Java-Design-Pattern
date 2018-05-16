@@ -17,6 +17,16 @@ private 멤버 변수로 자기 자신의 클래스 인스턴스를 가진다.
 private 생성자를 지정하여, 외부에서 절대로 인스턴스를 생성하지 못하게 한다.
 getInstance() 메소드를 통해 객체를 static 으로 얻을 수 있다.
 
+예제에선,
+
+만약 getInstance() 를 static 으로 구현하지 않는다면,
+DataConnector.getInstance() 에 접근 자체가 불가능하다.
+
+또한, instance 를 static 으로 구현하지 않는다면,
+DataConnector 클래스의 getInstance() 내부의 instance 에 접근 자체가 불가능하다.
+
+>> static 으로 선언하면, 미리 메모리 상에 올라간다. 마치 전역변수처럼 같은 주소값을 참조하게 된다.
+
  */
 
 import singleton.DataConnector;
