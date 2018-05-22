@@ -8,10 +8,18 @@
 
 >> 생성자만을 통해 객체를 만들게 되면, 이후에 파라미터 구조가 변경 될 때 유지보수의 어려움이 있다.
 
+=============================================================================================
+
 [방법 1 - GOF 의 Builder Pattern]
 (package :: gof_builder)
 
+>> 설계자(Factory) 에게 설계도(Builder) 를 전달해 원하는 인스턴스를 만드는 방식이다.
 
+- GOF 책에서 나온 방식이지만, 보통 자바 진영에서는 다른 Builder Pattern 을 사용한다.
+- 예제에선, setter 메소드를 통해 인스턴스의 데이터를 변경할 수 있으므로 좋지 않다. (Immutable 이 아니다.)
+(* Immutable 이 되도록 코드를 작성할 수 있겠지만, 자바 진영에서 자주 사용하는 방법이 따로 있으므로 넘어간다.)
+
+=============================================================================================
 
 [방법 2 - Java 의 Builder Pattern]
 (package :: java_builder)
@@ -26,11 +34,38 @@
 
  */
 
+import gof_builder.builder.ChocolateCookie;
+import gof_builder.Cookie;
+import gof_builder.CookieFactory;
+import gof_builder.builder.StrawberryCookie;
 import java_builder.Bread;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        // Builder Pattern - GOG Style
+        CookieFactory cookieFactory = new CookieFactory();
+
+        cookieFactory.setCookieBuilder(new StrawberryCookie());
+        cookieFactory.make();
+        Cookie c_1 = cookieFactory.getCookie();
+
+        cookieFactory.setCookieBuilder(new ChocolateCookie());
+        cookieFactory.make();
+        Cookie c_2 = cookieFactory.getCookie();
+
+        System.out.println("\n[Builder Pattern - GOF Style]");
+        System.out.println("=====================");
+        System.out.println(c_1.getName());
+        System.out.println(c_1.getWater());
+        System.out.println(c_1.getIngredient());
+        System.out.println(c_1.getEgg());
+        System.out.println("=====================");
+        System.out.println(c_2.getName());
+        System.out.println(c_2.getWater());
+        System.out.println(c_2.getIngredient());
+        System.out.println(c_2.getEgg());
 
         // Builder Pattern - Java Style
         Bread b_1 = new Bread.BreadBuilder("Strawberry Bread")
