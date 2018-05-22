@@ -34,10 +34,10 @@
 
  */
 
-import gof_builder.builder.ChocolateCookie;
+import gof_builder.builder.ChocolateCookieBuilder;
 import gof_builder.Cookie;
 import gof_builder.CookieFactory;
-import gof_builder.builder.StrawberryCookie;
+import gof_builder.builder.StrawberryCookieBuilder;
 import java_builder.Bread;
 
 public class Main {
@@ -47,11 +47,11 @@ public class Main {
         // Builder Pattern - GOG Style
         CookieFactory cookieFactory = new CookieFactory();
 
-        cookieFactory.setCookieBuilder(new StrawberryCookie());
+        cookieFactory.setCookieBuilder(new StrawberryCookieBuilder());
         cookieFactory.make();
         Cookie c_1 = cookieFactory.getCookie();
 
-        cookieFactory.setCookieBuilder(new ChocolateCookie());
+        cookieFactory.setCookieBuilder(new ChocolateCookieBuilder());
         cookieFactory.make();
         Cookie c_2 = cookieFactory.getCookie();
 
