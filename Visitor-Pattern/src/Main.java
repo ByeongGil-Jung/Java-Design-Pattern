@@ -62,7 +62,7 @@ public class Main {
                 new Fruit("Tomato", 20)
         };
 
-        for(ItemElement item : items) {
+        for (ItemElement item : items) {
             total += item.accept(visitor);
         }
 

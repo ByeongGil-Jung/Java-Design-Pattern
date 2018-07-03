@@ -15,7 +15,7 @@ public class ShopVisitor implements Visitor {
 
     @Override
     public int visit(Meat meat) {
-        int totalPrice = 0;
+        int totalPrice;
 
         System.out.println("Visit Name :: " + meat.getName());
         totalPrice = meat.getPricePerKg() * meat.getWeight();
@@ -25,7 +25,7 @@ public class ShopVisitor implements Visitor {
 
     @Override
     public int visit(Fruit fruit) {
-        int price = 0;
+        int price;
 
         System.out.println("Visit Name :: " + fruit.getName());
         price = fruit.getPrice();
