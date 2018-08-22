@@ -28,7 +28,7 @@ public class CurrentConditionsDisplay2 implements Observer, DisplayInterface2 {
     public void update(Observable observable) {
         if (observable instanceof WeatherData2) {
             WeatherData2 weatherData2 = (WeatherData2) observable;
-            temperature = weatherData2.getTemperatrue();
+            temperature = weatherData2.getTemperature();
             humidity = weatherData2.getHumidity();
         }
     }

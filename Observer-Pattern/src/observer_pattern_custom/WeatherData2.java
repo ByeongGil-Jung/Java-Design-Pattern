@@ -18,7 +18,7 @@ public class WeatherData2 implements Observable {
     // 연락을 돌릴 Observer 들의 리스트
     private List<Observer> observerList;
 
-    private float temperatrue;
+    private float temperature;
     private float humidity;
     private float pressure;
 
@@ -26,8 +26,8 @@ public class WeatherData2 implements Observable {
         this.observerList = new ArrayList<>();
     }
 
-    public void setMeasurements(float temperatrue, float humidity, float pressure) {
-        this.temperatrue = temperatrue;
+    public void setMeasurements(float temperature, float humidity, float pressure) {
+        this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
         notifyObserver();
@@ -54,8 +54,8 @@ public class WeatherData2 implements Observable {
         }
     }
 
-    public float getTemperatrue() {
-        return temperatrue;
+    public float getTemperature() {
+        return temperature;
     }
 
     public float getHumidity() {
