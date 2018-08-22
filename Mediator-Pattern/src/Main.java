@@ -23,7 +23,7 @@
 
 (알고리즘)
 
-연관된 각 Colleague 들은 하나의 Mediator 을 등록시킨다.
+연관된 각 Colleague 들은 하나의 Mediator 을 등록시킨다. (registerMediator(Mediator mediator))
 
 이후,
 어떤 Colleague 에서 Mediator 를 향해 요청(mediate())을 보내면,
@@ -50,18 +50,22 @@ import mediator.Mediator;
 public class Main {
 
     public static void main(String[] args) {
+        // Creating Mediator
         Mediator chattingMediator = new ChattingMediator();
 
+        // Creating chatting members (Colleagues)
         Colleague colleague1 = new ChattingColleague("A", "1");
         Colleague colleague2 = new ChattingColleague("B", "1");
         Colleague colleague3 = new ChattingColleague("C", "2");
         Colleague colleague4 = new ChattingColleague("D", "3");
 
+        // Register the Mediator
         colleague1.registerMediator(chattingMediator);
         colleague2.registerMediator(chattingMediator);
         colleague3.registerMediator(chattingMediator);
         colleague4.registerMediator(chattingMediator);
 
+        // Sending a message to other members
         ((ChattingColleague) colleague1).sendChattingMessage("Hello ~");
         System.out.println();
         ((ChattingColleague) colleague2).sendChattingMessage("Nihao ~");
